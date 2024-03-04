@@ -1,0 +1,217 @@
+.section-about {
+  padding: 25rem 0;
+  background-color: $color-grey-light;
+  margin-top: calc(75vh - 95vh);
+  @include respond(tab-land) {
+    padding: 20rem 0rem;
+  }
+  @include respond(tab-port) {
+    padding: 15rem 0;
+    padding-bottom: 25rem;
+  }
+
+  @include respond(phone) {
+    padding-bottom: 5rem;
+  }
+  &__container {
+    max-width: 120rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    grid-column-gap: 5rem;
+    padding: 2rem;
+    @include respond(tab-land) {
+      max-width: 130rem;
+    }
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+      padding: 4rem;
+    }
+  }
+
+  &__text {
+    padding: 4rem;
+
+    @include respond(tab-port) {
+      font-size: 2rem;
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+    @include respond(phone) {
+      padding: 1rem;
+      max-width: 90%;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__image {
+    @include respond(phone) {
+      height: 30rem;
+    }
+  }
+}
+
+.features {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary, 0.8),
+      rgba($color-tertiary, 0.8)
+    ),
+    url(../img/nat-4.jpg);
+  background-size: cover;
+  background-position: top;
+  transform: skewY(-7deg);
+  margin-top: -10rem;
+
+  @include respond(tab-land) {
+    padding: 10rem 0;
+
+    transform: skewY(-5deg);
+  }
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
+
+  @include respond(tab-port) {
+    transform: skewY(-4deg);
+    margin-top: -4rem;
+  }
+
+  &__container {
+    max-width: 120rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding: 4rem;
+    grid-gap: 5rem;
+    transform: skewY(7deg);
+    @include respond(tab-land) {
+      transform: skewY(5deg);
+    }
+
+    @include respond(tab-port) {
+      transform: skewY(4deg);
+    }
+
+    @include respond(tab-land) {
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+  }
+
+  &__box {
+    background-color: rgba(#fff, 0.8);
+    padding: 2rem;
+    display: grid;
+    justify-items: center;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 2.5rem rgba($color-black, 0.2);
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateY(-1.5rem) scale(1.03);
+    }
+
+    &--icon {
+      height: 6rem;
+      width: 6rem;
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+
+      fill: $color-primary;
+    }
+  }
+}
+
+.section-tours {
+  padding: 20rem 0rem;
+  background-color: $color-grey-light;
+  margin-top: -10rem;
+
+  @include respond(tab-port) {
+    padding: 15rem 0rem;
+  }
+}
+
+.card-container {
+  max-width: 120rem;
+  margin: 0 auto;
+  //height: 50rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  grid-gap: 5rem;
+  padding: 2rem;
+
+  @media (max-width: 62.5em) {
+    grid-gap: 1rem;
+  }
+
+  @media (max-width: 58.75em) {
+    grid-row-gap: 10rem;
+  }
+
+  @media (max-width: 39.4em) {
+    padding: 0 10rem;
+  }
+
+  @include respond(phone) {
+    padding: 1.1rem;
+  }
+  @media (max-width: 37em) {
+    justify-items: center;
+    align-items: center;
+    grid-row-gap: 4rem;
+  }
+}
+
+.section-stories {
+  padding: 15rem 0;
+  //background-color: $color-grey-light;
+  position: relative;
+
+  @include respond(tab-port) {
+    padding: 10rem 0rem;
+  }
+}
+
+.section-cta {
+  padding: 15rem 0;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-primary,
+    $color-tertiary
+  );
+
+  @include respond(tab-port) {
+    padding: 10rem 0rem;
+  }
+}
+
+.form__container {
+  width: 90%;
+  margin: 0 auto;
+  height: 55rem;
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.9) 0%,
+      rgba($color-white, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../img/nat-10.jpg);
+  background-size: cover;
+
+  @include respond(tab-port) {
+    width: 80%;
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 100%
+      ),
+      url(../img/nat-10.jpg);
+    display: grid;
+    justify-items: start;
+  }
+}

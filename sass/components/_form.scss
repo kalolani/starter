@@ -1,0 +1,117 @@
+.form {
+  height: 100%;
+  width: 50%;
+  padding: 4rem;
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 2rem;
+  }
+  @include respond(phone) {
+    padding-left: 4rem;
+    padding: 1rem;
+  }
+
+  &__group {
+    width: 100%;
+    &:not(:last-child) {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    &-input {
+      width: 80%;
+      font-family: inherit;
+      max-width: 100%;
+      padding: 1.3rem 2rem;
+      font-size: 1.5rem;
+      background-color: #fff;
+      border-radius: 3px;
+      border: none;
+      outline: none;
+      display: block;
+      border-bottom: 3px solid $color-white;
+      transition: all 0.2s;
+
+      &:focus {
+        border-bottom: 3px solid $color-secondary-dark;
+      }
+    }
+
+    &-label {
+      font-family: inherit;
+      margin-left: 2rem;
+      font-size: 1.5rem;
+      transform: translateY(-3.7rem);
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    &-input:focus + &-label {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    &-input:focus:valid {
+      border-bottom: 3px solid $color-tertiary;
+    }
+
+    &-radio {
+      display: inline-block;
+      opacity: 0;
+    }
+    &-radio-label {
+      display: inline-block;
+      padding-left: 1rem;
+      cursor: pointer;
+
+      @include respond(phone) {
+        display: block;
+      }
+    }
+
+    &-radio-btn {
+      height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+      outline: 3px solid $color-tertiary;
+      display: block;
+      transform: translateY(0.2rem) translateX(-2.8rem);
+      position: absolute;
+      @include respond(tab-port) {
+        transform: translateY(0.15rem) translateX(-3.2rem);
+      }
+
+      &::after {
+        content: "";
+        width: 1.3rem;
+        height: 1.3rem;
+        background-color: $color-primary;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: all 0.2s;
+      }
+    }
+
+    &-radio-container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+
+      @include respond(tab-port) {
+        display: block;
+      }
+
+      @include respond(phone) {
+        margin-left: 2.5rem;
+      }
+    }
+
+    &-radio:checked ~ &-radio-label &-radio-btn::after {
+      opacity: 1;
+    }
+  }
+}

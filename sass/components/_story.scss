@@ -1,0 +1,93 @@
+.story {
+  padding: 6rem;
+  padding-left: 9rem;
+  max-width: 70%;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  border-radius: 3px;
+  background-color: rgba($color-white, 0.5);
+  margin-bottom: 8rem;
+
+  &__shape {
+    height: 15rem;
+    width: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+
+    position: relative;
+
+    @include respond(tab-port) {
+      transform: skewX(0);
+      margin-right: 4rem;
+    }
+
+    @include respond(phone) {
+      grid-column: 1 / span2;
+      justify-self: center;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+
+    //background-size: cover;
+  }
+
+  &:hover &__image {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(5px) brightness(80%);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-align: center;
+    transition: all 0.5s;
+    opacity: 0;
+  }
+  &:hover &__caption {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+
+    @include respond(tab-land) {
+      text-align: left;
+    }
+
+    @include respond(tab-port) {
+      transform: skewX(0);
+    }
+
+    @include respond(phone) {
+      grid-column: 1 / span2;
+      justify-self: center;
+      text-align: left;
+      font-size: 1.5rem;
+      padding: 1rem;
+    }
+  }
+
+  transform: skewX(-12deg);
+
+  @include respond(tab-port) {
+    transform: skewX(0);
+    padding: 2rem;
+  }
+
+  @include respond(phone) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

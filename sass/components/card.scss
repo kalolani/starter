@@ -1,0 +1,309 @@
+.card {
+  height: 54rem;
+  width: 100%;
+  perspective: 150rem;
+  position: relative;
+  z-index: 10;
+
+  @media (max-width: 62.5em) {
+    width: 90%;
+  }
+
+  &--3 {
+    @media (max-width: 58.75em) {
+      grid-column: 1/-1;
+      justify-self: center;
+      width: 50%;
+    }
+    @media (max-width: 39.4em) {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 37em) {
+    width: 70%;
+  }
+
+  //box-shadow: 0 2rem 4rem rgba($color-black, 0.3);
+  &__side {
+    width: 100%;
+    height: 54rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.8s;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.3);
+  }
+
+  &__side--front {
+    background-color: $color-white;
+    transform: rotateY(0deg);
+  }
+
+  &__side--back-1 {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-primary,
+      $color-tertiary
+    );
+    transform: rotateY(180deg);
+  }
+  &__side--back-2 {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-secondary-light,
+      $color-secondary-dark
+    );
+    transform: rotateY(180deg);
+  }
+
+  &__side--back-3 {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-tertiary-light,
+      $color-tertiary-dark
+    );
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+
+  &__image {
+    position: relative;
+    height: 23rem;
+    background-blend-mode: screen;
+    overflow: hidden;
+  }
+
+  &__image-1 {
+    background-image: linear-gradient(
+        to bottom right,
+        $color-secondary-light,
+        $color-secondary-dark
+      ),
+      url(../img/nat-5.jpg);
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+  &__image-2 {
+    background-image: linear-gradient(
+        to bottom right,
+        $color-primary,
+        $color-tertiary
+      ),
+      url(../img/nat-6.jpg);
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+  &__image-3 {
+    background-image: linear-gradient(
+        to bottom right,
+        $color-tertiary-light,
+        $color-tertiary-dark
+      ),
+      url(../img/nat-7.jpg);
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+
+    width: 75%;
+    text-align: right;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+
+    @include respond(phone) {
+      font-size: 1.8rem;
+      width: 65%;
+    }
+  }
+
+  &__heading-span--1 {
+    background-image: linear-gradient(
+      $color-secondary-light,
+      $color-secondary-dark
+    );
+    -webkit-box-decoration-break: clone;
+    padding: 1rem 1.5rem;
+    color: #fff;
+  }
+  &__heading-span--2 {
+    background-image: linear-gradient($color-primary, $color-tertiary);
+    -webkit-box-decoration-break: clone;
+    padding: 1rem 1.5rem;
+    color: #fff;
+  }
+  &__heading-span--3 {
+    background-image: linear-gradient(
+      $color-tertiary-light,
+      $color-tertiary-dark
+    );
+    -webkit-box-decoration-break: clone;
+    padding: 1rem 1.5rem;
+    color: #fff;
+  }
+
+  &__details {
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  &__list {
+    list-style: none;
+
+    & li {
+      font-size: 1.5rem;
+      font-weight: 300;
+      padding-top: 1rem;
+      padding-bottom: 1.5rem;
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-grey-light;
+      }
+
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+
+  &__tour-btn {
+    padding: 1.5rem 5rem;
+    @media (max-width: 39.4em) {
+      padding: 1rem 2.5rem;
+    }
+  }
+
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  &:hover &__side--back &__cta {
+    opacity: 1;
+  }
+
+  &__price {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__price-number {
+    font-size: 6rem;
+  }
+
+  &__price-box {
+    color: #fff;
+  }
+
+  &__green-btn {
+    background-color: $color-tertiary;
+    color: white;
+    border-radius: 100px;
+    padding: 1.5rem 3rem;
+  }
+
+  @include respond(tab-port) {
+    height: auto;
+    background-color: $color-white;
+
+    &__side {
+      height: auto;
+      position: relative;
+      border-radius: 3px;
+      box-shadow: none;
+    }
+
+    &__side--front {
+      background-color: $color-white;
+      transform: rotateY(0deg);
+    }
+
+    &__side--back-1 {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-primary,
+        $color-tertiary
+      );
+      transform: rotateY(0);
+    }
+    &__side--back-2 {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-secondary-light,
+        $color-secondary-dark
+      );
+      transform: rotateY(0);
+    }
+
+    &__side--back-3 {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-tertiary-light,
+        $color-tertiary-dark
+      );
+      transform: rotateY(0);
+    }
+
+    &__side--back {
+      clip-path: polygon(0% 15%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 3rem 4rem;
+      opacity: 1;
+    }
+
+    &:hover &__side--back &__cta {
+      opacity: 1;
+    }
+
+    &__price {
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    &__price-number {
+      font-size: 4rem;
+    }
+
+    &__price-box {
+      color: #fff;
+    }
+
+    &__green-btn {
+      background-color: $color-tertiary;
+      color: white;
+      border-radius: 100px;
+      padding: 1.5rem 3rem;
+    }
+  }
+}

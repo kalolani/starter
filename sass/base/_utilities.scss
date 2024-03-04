@@ -1,0 +1,49 @@
+.mb-small {
+  margin-bottom: 2rem;
+
+  @media (max-width: 31.25em) {
+    margin-bottom: 1rem;
+  }
+}
+.mb-medium {
+  margin-bottom: 6rem;
+  @include respond(tab-port) {
+    margin-bottom: 2rem;
+  }
+}
+.mb-large {
+  margin-bottom: 8rem;
+}
+.mb-largest {
+  margin-bottom: 10rem;
+}
+.mt-medium {
+  margin-top: 4rem;
+}
+.mt-small {
+  margin-top: 2rem;
+
+  @include respond(phone) {
+    margin-top: 4rem;
+  }
+}
+.mt-medium {
+  margin-top: 4rem;
+}
+.mt-large {
+  margin-top: 15rem;
+
+  @include respond(tab-port) {
+    margin-top: 10rem;
+  }
+}
+
+.u-center {
+  text-align: center;
+}
+.u-right {
+  text-align: right;
+}
+.u-left {
+  text-align: left;
+}

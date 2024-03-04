@@ -1,0 +1,85 @@
+.composition {
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  margin-top: 2rem;
+  @include respond(tab-port) {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  @include respond(phone) {
+    margin-top: 4rem;
+    height: 60%;
+  }
+
+  &__image {
+    display: inline-block;
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
+    transition: all 0.3s;
+    z-index: 10;
+    outline-offset: 1.5rem;
+
+    @include respond(tab-land) {
+      width: 45%;
+      text-align: center;
+    }
+
+    @include respond(tab-port) {
+      width: 40%;
+      text-align: center;
+    }
+    @include respond(tab-phone) {
+      width: 100%;
+      text-align: center;
+    }
+    @media (max-width: 31.25) {
+      width: 100%;
+    }
+    &:hover {
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.6);
+      transform: scale(1.1) translateY(-1.1rem);
+      outline: 1.5rem solid $color-primary;
+      border-radius: 2%;
+      z-index: 20;
+    }
+  }
+
+  &__image--1 {
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+  }
+
+  &__image--2 {
+    position: absolute;
+    top: 20%;
+    right: -2rem;
+    @include respond(tab-land) {
+      top: -0.5rem;
+      left: 55%;
+    }
+    @include respond(tab-port) {
+      left: 45%;
+    }
+  }
+
+  &__image--3 {
+    position: absolute;
+    top: 90%;
+    left: 20%;
+
+    @include respond(tab-land) {
+      z-index: 500;
+    }
+
+    @include respond(tab-land) {
+      top: 25%;
+    }
+  }
+
+  &:hover &__image:not(:hover) {
+    transform: scale(0.9);
+  }
+}
